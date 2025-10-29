@@ -3,7 +3,7 @@ import logging
 
 from celery import shared_task
 
-from app.models import Notification, NotificationStatus, NotificationChannel
+from app.models import Notification, NotificationChannel, NotificationStatus
 from app.notifier.notifier import Notifier
 from app.notifier.strategy import DeliveryStrategy
 

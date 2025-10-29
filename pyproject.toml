@@ -1,0 +1,36 @@
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+exclude = [
+    "app/migrations/",
+    "config/settings.py",
+    "**/env.py",
+    "*.pyi",
+    ".venv/",
+    "venv/",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "YTT", # flake8-2020
+    "FBT", # flake8-boolean-trap
+    "Q",   # flake8-quotes
+    "ANN", # flake8-annotations - аннотации типов
+]
+ignore = [
+    "ANN101", # Missing type annotation for self in method
+    "ANN102", # Missing type annotation for cls in classmethod
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false

@@ -1,22 +1,22 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 
 
 class NotificationChannel(models.TextChoices):
-    EMAIL = 'email', 'Email'
-    SMS = 'sms', 'SMS'
-    TELEGRAM = 'telegram', 'Telegram'
+    EMAIL = "email", "Email"
+    SMS = "sms", "SMS"
+    TELEGRAM = "telegram", "Telegram"
 
 
 class NotificationPriority(models.TextChoices):
-    HIGH = 'high', 'High'
-    MEDIUM = 'medium', 'Medium'
+    HIGH = "high", "High"
+    MEDIUM = "medium", "Medium"
 
 
 class NotificationStatus(models.TextChoices):
-    PENDING = 'pending', 'Pending'
-    SENT = 'sent', 'Sent'
-    FAILED = 'failed', 'Failed'
+    PENDING = "pending", "Pending"
+    SENT = "sent", "Sent"
+    FAILED = "failed", "Failed"
 
 
 class Notification(models.Model):
@@ -40,7 +40,7 @@ class Notification(models.Model):
     )
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ["-created_at"]
 
     def __str__(self):
         return f"Notification for {self.user.username} - {self.status}"

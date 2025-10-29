@@ -17,12 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app.views.notification import CreateNotificationView, NotificationListView, NotificationDetailView
-
+from app.views.notification import (
+    CreateNotificationView,
+    NotificationDetailView,
+    NotificationListView,
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/notifications/', CreateNotificationView.as_view(), name='create-notification'),
-    path('api/notifications/list', NotificationListView.as_view(), name='list-notifications'),
-    path('api/notifications/<int:pk>', NotificationDetailView.as_view(), name='notification-detail'),
+    path("admin/", admin.site.urls),
+    path("api/notifications/", CreateNotificationView.as_view(), name="create-notification"),
+    path("api/notifications/list", NotificationListView.as_view(), name="list-notifications"),
+    path("api/notifications/<int:pk>", NotificationDetailView.as_view(), name="notification-detail"),
 ]
