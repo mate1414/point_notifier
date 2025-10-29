@@ -10,5 +10,5 @@ class DeliveryStrategy:
             return channel
         return None
 
-    def has_next(self):
+    def has_next(self) -> bool:
         return self.current_index < len(self.channels)

@@ -12,7 +12,7 @@ from app.tasks.notification import send_notification_task
 
 
 class CreateNotificationView(APIView):
-    def post(self, request):
+    def post(self, request) -> Response:
         serializer = CreateNotificationSerializer(data=request.data)
         if serializer.is_valid():
             try:

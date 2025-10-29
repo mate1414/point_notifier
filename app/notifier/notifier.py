@@ -2,14 +2,14 @@ import logging
 
 from django.conf import settings
 from django.core.mail import send_mail
-
+from app.models import Notification
 
 logger = logging.getLogger(__name__)
 
 
 class Notifier:
     @staticmethod
-    def send_email(notification):
+    def send_email(notification: Notification) -> bool:
         """Отправка email через Django email backend"""
         try:
             send_mail(
@@ -25,7 +25,7 @@ class Notifier:
             return False
 
     @staticmethod
-    def send_sms(notification):
+    def send_sms(notification: Notification) -> bool:
         """Заглушка для SMS сервиса"""
         try:
             # Интеграция с SMS провайдером
@@ -37,7 +37,7 @@ class Notifier:
             return False
 
     @staticmethod
-    def send_telegram(notification):
+    def send_telegram(notification: Notification) -> bool:
         """Заглушка для Telegram бота"""
         try:
             # Интеграция с Telegram Bot API

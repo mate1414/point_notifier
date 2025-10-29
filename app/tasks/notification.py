@@ -18,7 +18,7 @@ CHANNEL_TYPE_METHOD_MAP = {
 
 
 @shared_task(bind=True, max_retries=3)
-def send_notification_task(self, notification_id: int):
+def send_notification_task(self, notification_id: int) -> str | None:
     try:
         notification = Notification.objects.get(id=notification_id)
         strategy = DeliveryStrategy(notification.channels)
